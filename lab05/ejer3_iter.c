@@ -15,6 +15,38 @@ void merge(int arr[], int izquierda, int medio, int derecha) {
     int n1 = medio - izquierda + 1;
     int n2 = derecha - medio;
     int aux1[n1], aux2[n2];
+
+    // Copiamos datos en arreglos temporales
+    for (i = 0; i < n1; i++) aux1[i] = arr[izquierda + i];
+    for (j = 0; j < n2; j++) aux2[j] = arr[medio + 1 + j];
+
+    i = 0;
+    j = 0;
+    k = izquierda;
+    // ascendente
+    while (i < n1 && j < n2) {
+        if (aux1[i] <= aux2[j]) {
+            arr[k] = aux1[i];
+            i++;
+        } else {
+            arr[k] = aux2[j];
+            j++;
+        }
+        k++;
+    }
+
+    // elementos restantes -> arreglos temporales
+    while (i < n1) {
+        arr[k] = aux1[i];
+        i++;
+        k++;
+    }
+
+    while (j < n2) {
+        arr[k] = aux2[j];
+        j++;
+        k++;
+    }
 }
 
 int min(int x, int y) { return (x < y) ? x : y; }
