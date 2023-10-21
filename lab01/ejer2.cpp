@@ -11,6 +11,7 @@ int main()
         cout << "Ingrese numero para la ubicacion [" << i << "] << ";
         cin >> array[i];
     }
+    
     for(int i = 0; i < cant; i++)
     {
         cout << "Numero en la posicion [" << i << "] es >> " << array[i] << "\n";
